@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    public static GameManager Instance;
-    public bool gameOver=false;
-    private int puntuacion=0;
-    public Text marcador;
-    private GameObject panel;
+    public static GameManager Instance;             //Instancia del GameMAnager para llamarlo desde otro script
+    public bool gameOver=false;                     //Indica si es GameOver o no
+    private int puntuacion=0;                       //La puntuacion del jugador
+    public Text marcador;                           //Texto que muestra la putnuacion del jugador
+    private GameObject panel;                       //El panel en el que estan los botones de "Restart" y "Menu"
     [SerializeField]
-    private GeneradorDeSierras generadorDeSierras;
+    private GeneradorDeSierras generadorDeSierras;  //El generador de las sierras
 
-    // Start is called before the first frame update
+    // Awake, se le llama antes del Start
     void Awake()
     {
         Instance=this;
@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
         GameObject.Find("GeneradorDeSierras").GetComponent<GeneradorDeSierras>().StopSpawning();
     }
 
-    //incrementa la puntuacion cada vez que una sierra toque el suelo
+    //Incrementa la puntuacion cada vez que una sierra toque el suelo y aumenta la velocidad cada 10 puntos
     public void IncrementarPuntuacion(){
+        //Detecta si es GameOver
         if(!gameOver){
             puntuacion++;
             marcador.text=puntuacion.ToString();

@@ -6,15 +6,15 @@ public class GeneradorDeSierras : MonoBehaviour
 {
 
     [SerializeField]
-    public GameObject sierraASpawnear;      //El GamObject
+    public GameObject sierraASpawnear;      //El GamObject de las sierras
     [SerializeField]
     public float tiempoEsperaSpawn;         //El tiempo de espera de generacion de las sierras desde que se inicia el lanzador
     [SerializeField]
     public float intervaloDeSpawn;          //El intervalo en el que se generan
     [SerializeField]
-    float minX=-4f;
+    float minX=-4f;                         //La distancia x hacia la izquierda del spawner
     [SerializeField]
-    float maxX=4f;
+    float maxX=4f;                          //La distancia x hacia la derecha del spawner
 
     // Start is called before the first frame update
     void Start()

@@ -8,20 +8,23 @@ public class Obstaculo : MonoBehaviour
 
 
 
-    // Update is called once per frame
+    // Parecido al update, pero toma el tiempo de actualizacion dependiendo del dispositivo
     void FixedUpdate()
     {
         //Rotar las sierra
         transform.Rotate(0,0,velocidadDeRotacion);
     }
 
+    //Detecta cuando entra en contacto con el suelo y con el jugador (Objeto con el trigger activado)
     void OnTriggerEnter2D(Collider2D collision){
+        //Si toca el suelo
         if(collision.tag=="suelo"){
             //Suma un punto
             GameManager.Instance.IncrementarPuntuacion();
             //Destrulle el objeto si esta tocando el suelo
             Destroy(gameObject);
         }
+        //Si toca al jugador
         if(collision.tag=="Player"){
             //Destrulle al jugador
             Destroy(collision.gameObject);

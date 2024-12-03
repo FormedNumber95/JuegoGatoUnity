@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     //Diferente del update, controla mejor las actualizaciones
     void FixedUpdate()
     {
+        //Establece la animacion
         bool isMoving = rb.velocity.magnitude == 0f;
         anim.SetBool("IsMoving", isMoving);
         //Si (pulsado click izquierdo)
